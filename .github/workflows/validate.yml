@@ -30,10 +30,10 @@ jobs:
           import fs from 'node:fs';
           const html = fs.readFileSync('index.html', 'utf8');
           const js = fs.readFileSync('game.js', 'utf8');
-          const ids = [...html.matchAll(/\\bid="([^"]+)"/g)].map(m => m[1]);
+          const ids = [...html.matchAll(/id="([^"]+)"/g)].map(m => m[1]);
           const unique = new Set(ids);
           if (unique.size !== ids.length) throw new Error('Duplicate HTML id found');
-          const used = [...js.matchAll(/\\$\\("([^"]+)"\\)/g)].map(m => m[1]);
+          const used = [...js.matchAll(/\$\("([^"]+)"\)/g)].map(m => m[1]);
           const missing = [...new Set(used.filter(id => !unique.has(id)))];
           if (missing.length) throw new Error('Missing HTML ids: ' + missing.join(', '));
           if (!html.includes('src="game.js"')) throw new Error('game.js is not linked');
