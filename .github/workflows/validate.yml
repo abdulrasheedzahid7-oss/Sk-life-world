@@ -1,0 +1,42 @@
+name: Validate SK Life World
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: node --check game.js
+      - name: Check required project files
+        run: |
+          test -s index.html
+          test -s style.css
+          test -s game.js
+          test -s README.md
+      - name: Check HTML references
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const html = fs.readFileSync('index.html', 'utf8');
+          const js = fs.readFileSync('game.js', 'utf8');
+          const ids = [...html.matchAll(/\\bid="([^"]+)"/g)].map(m => m[1]);
+          const unique = new Set(ids);
+          if (unique.size !== ids.length) throw new Error('Duplicate HTML id found');
+          const used = [...js.matchAll(/\\$\\("([^"]+)"\\)/g)].map(m => m[1]);
+          const missing = [...new Set(used.filter(id => !unique.has(id)))];
+          if (missing.length) throw new Error('Missing HTML ids: ' + missing.join(', '));
+          if (!html.includes('src="game.js"')) throw new Error('game.js is not linked');
+          if (!html.includes('href="style.css"')) throw new Error('style.css is not linked');
+          console.log('HTML references passed.');
+          NODE
