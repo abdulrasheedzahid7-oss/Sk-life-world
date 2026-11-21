@@ -1,72 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#08111f">
-  <meta name="description" content="SK Life World - a 2D life simulation game.">
-  <title>SK Life World</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10182d">
+<title>SK Life World</title><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#"><span class="brand-mark">SK</span><span>SK Life World<small>YOUR STORY, YOUR WORLD</small></span></a>
-    <div class="top-actions"><span id="dayLabel">Day 1</span><span id="clockLabel">08:00 AM</span><button id="saveBtn" class="small-btn">Save</button></div>
-  </header>
-
-  <main class="layout">
-    <section class="game-column">
-      <div class="scene-heading"><div><p class="eyebrow">CURRENT LOCATION</p><h1 id="locationTitle">Home</h1></div><span class="weather">☀️ Sunny</span></div>
-      <div class="canvas-wrap">
-        <canvas id="world" width="960" height="540" aria-label="2D life simulator world"></canvas>
-        <div class="scene-hint" id="sceneHint">Use the arrow keys or on-screen controls to move.</div>
-      </div>
-      <div class="mobile-pad" aria-label="Movement controls">
-        <button data-move="up">▲</button><div><button data-move="left">◀</button><button data-move="down">▼</button><button data-move="right">▶</button></div>
-      </div>
-      <div class="location-list" id="locationList">
-        <button class="location active" data-location="Home">🏠<span>Home</span></button>
-        <button class="location" data-location="Park">🌳<span>Park</span></button>
-        <button class="location" data-location="School">🏫<span>School</span></button>
-        <button class="location" data-location="Shop">🛒<span>Shop</span></button>
-        <button class="location" data-location="Town">🏙️<span>Town</span></button>
-      </div>
-    </section>
-
-    <aside class="side-column">
-      <section class="panel profile">
-        <div class="avatar">🧑</div><div><p class="eyebrow">YOUR CHARACTER</p><h2 id="playerName">Player</h2><p id="ageLabel">Age 10 · Student</p></div>
-        <button id="nameBtn" class="icon-btn" title="Change name">✎</button>
-      </section>
-      <section class="panel">
-        <div class="panel-title"><h2>Life status</h2><span class="level" id="levelLabel">LVL 1</span></div>
-        <div class="stat"><div><span>❤️ Health</span><b id="healthValue">100</b></div><div class="meter"><i id="healthBar"></i></div></div>
-        <div class="stat"><div><span>⚡ Energy</span><b id="energyValue">85</b></div><div class="meter"><i id="energyBar"></i></div></div>
-        <div class="stat"><div><span>🍔 Hunger</span><b id="hungerValue">25</b></div><div class="meter"><i id="hungerBar"></i></div></div>
-        <div class="stat"><div><span>😊 Mood</span><b id="moodValue">80</b></div><div class="meter"><i id="moodBar"></i></div></div>
-        <div class="stat"><div><span>📚 Learning</span><b id="learningValue">10</b></div><div class="meter"><i id="learningBar"></i></div></div>
-      </section>
-      <section class="panel">
-        <div class="panel-title"><h2>Wallet</h2><span class="cash" id="cashLabel">🪙 100</span></div>
-        <p class="muted">Coins earned through age-appropriate activities and quests.</p>
-      </section>
-      <section class="panel">
-        <div class="panel-title"><h2>What to do?</h2><span class="muted">Choose an action</span></div>
-        <div class="actions">
-          <button data-action="eat">🍎<span>Eat</span></button><button data-action="sleep">🛏️<span>Rest</span></button>
-          <button data-action="study">📖<span>Study</span></button><button data-action="play">⚽<span>Play</span></button>
-          <button data-action="social">💬<span>Socialize</span></button><button data-action="explore">🧭<span>Explore</span></button>
-        </div>
-      </section>
-      <section class="panel">
-        <div class="panel-title"><h2>Daily quest</h2><span class="level">TODAY</span></div>
-        <p id="questText">Study for a little while and build your knowledge.</p>
-        <div class="quest-progress"><i id="questBar"></i></div><p class="muted" id="questProgress">0 / 1 completed</p>
-      </section>
-      <section class="panel log-panel"><div class="panel-title"><h2>Life journal</h2><button id="clearLog" class="text-btn">Clear</button></div><ul id="eventLog"><li>Your new life adventure begins!</li></ul></section>
-    </aside>
-  </main>
-  <div id="toast" class="toast" role="status"></div>
-  <script src="game.js"></script>
-</body>
-</html>
+<header class="topbar"><a class="brand" href="#"><span class="brand-mark">SK</span><span>SK LIFE WORLD<small>اپنی زندگی خود بنائیں</small></span></a><div class="top-actions"><span id="connection" class="pill">Offline mode</span><button id="saveBtn" class="ghost">محفوظ کریں</button><button id="logoutBtn" class="ghost hidden">Logout</button></div></header>
+<main id="app">
+<section id="welcome" class="welcome panel">
+<div class="hero-copy"><span class="eyebrow">2D LIFE SIMULATOR</span><h1>آپ کی زندگی، آپ کے فیصلے۔</h1><p>10 سال کی عمر سے سفر شروع کریں۔ پڑھیں، ہنر سیکھیں، نوکری کریں، کاروبار بنائیں، گھر اور گاڑی خریدیں، دوست بنائیں اور اپنی کامیابی کی کہانی لکھیں۔</p></div>
+<div class="auth-panel"><h2>اکاؤنٹ / Login</h2><p>Google یا Email کے ذریعے سائن اِن کریں۔</p><button id="googleLogin" class="secondary" type="button">Google سے سائن اِن</button><label>Email<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="کم از کم 6 حروف"></label><div class="inline-row"><button id="emailLogin" class="secondary" type="button">Login</button><button id="emailSignup" class="ghost" type="button">نیا اکاؤنٹ</button></div><small id="authStatus">Firebase login دستیاب ہے۔</small></div>
+<form id="createForm" class="create-form"><label>آپ کا نام<input id="playerName" maxlength="24" required placeholder="مثلاً احمد"></label><label>Unique Username<input id="playerUsername" maxlength="18" pattern="[A-Za-z0-9_]{3,18}" required placeholder="مثلاً ahmad_01"></label><label>اپنا شہر منتخب کریں<select id="playerCity"><option>اسلام آباد</option><option>لاہور</option><option>کراچی</option><option>پشاور</option><option>کوئٹہ</option><option>ملتان</option></select></label><button class="primary" type="submit">زندگی شروع کریں ←</button><small>گیم Offline بھی کھیلی جا سکتی ہے۔</small></form>
+</section>
+<section id="game" class="hidden"><div class="stats-grid">
+<article class="stat"><span>عمر</span><strong id="age">10</strong><small id="dateLabel">سال 1 · دن 1</small></article><article class="stat"><span>بینک بیلنس</span><strong id="balance">₨ 0</strong><small>آپ کی نقد رقم</small></article><article class="stat"><span>ماہانہ آمدنی</span><strong id="income">₨ 0</strong><small>موجودہ آمدنی</small></article><article class="stat"><span>کل دولت</span><strong id="netWorth">₨ 0</strong><small>رقم + اثاثے</small></article></div>
+<div class="game-layout"><section class="world-panel panel"><div class="section-heading"><div><span class="eyebrow">YOUR WORLD</span><h2 id="cityTitle">اسلام آباد</h2></div><span class="pill" id="weather">☀ صاف موسم</span></div><canvas id="world" width="900" height="420" aria-label="2D شہر"></canvas><div class="world-caption"><span>🧍 <b id="characterName">Player</b></span><span>📍 <b id="locationName">گھر</b></span><span>⏱ ہر کلک سے ایک دن آگے</span></div><div class="time-controls"><button id="nextDay" class="primary">اگلا دن ⏭</button><button id="nextWeek" class="secondary">ایک ہفتہ ⏩</button><button id="nextMonth" class="secondary">ایک مہینہ ⏭</button></div></section>
+<aside class="profile-panel panel"><div class="avatar" id="avatar">🙂</div><h2 id="profileName">Player</h2><p id="profileHandle">@player</p><div class="progress-line"><span>تعلیم</span><b id="educationLabel">ابتدائی</b></div><div class="progress-line"><span>ہنر</span><b id="skillsLabel">0</b></div><div class="progress-line"><span>ذہنی اسکور</span><b id="mindsetLabel">50/100</b></div><button id="editProfile" class="ghost full">پروفائل</button></aside></div>
+<nav class="tabs" id="tabs"><button class="tab active" data-tab="life">🌱 زندگی</button><button class="tab" data-tab="education">📚 تعلیم</button><button class="tab" data-tab="career">💼 کیریئر</button><button class="tab" data-tab="business">🏢 کاروبار</button><button class="tab" data-tab="bank">🏦 بینک</button><button class="tab" data-tab="market">🛍 مارکیٹ</button><button class="tab" data-tab="social">👥 دوست</button><button class="tab" data-tab="ranking">🏆 مقابلہ</button></nav>
+<section id="tabContent" class="panel tab-content"></section><section class="panel log-panel"><div class="section-heading"><h2>📜 زندگی کی ڈائری</h2><span class="pill">حالیہ واقعات</span></div><div id="eventLog"></div></section></section>
+</main><footer>SK Life World · Virtual simulation only · Progress is saved on this device</footer><div id="toast" class="toast" role="status"></div><script type="module" src="app.js"></script></body></html>
